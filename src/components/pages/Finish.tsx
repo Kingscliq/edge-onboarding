@@ -1,11 +1,10 @@
 import React from 'react';
 import { success } from '../../assets/icons';
 import Button from '../elements/Button';
-import TextField from '../elements/TextField';
 
 const Finish: React.FC<{}> = () => {
   return (
-    <section className=" mt-32 text-secondary">
+    <section className="mt-16 text-secondary">
       <div className="flex items-center justify-center mb-4">
         <img src={success} alt="" className="h-16 w-16" />
       </div>
@@ -19,16 +18,8 @@ const Finish: React.FC<{}> = () => {
           You have completed the onboarding, you can now start using the app.
         </p>
       </div>
-
       <div>
-        <Button
-          className="bg-primary text-light text-sm"
-          label="Launch Eden"
-          // onClick={() => {
-          //   setStep({ step: 3, completed: true, active: false });
-          //   navigate('/?step=4');
-          // }}
-        />
+        <Button className="bg-primary text-light text-sm" label="Launch Eden" />
       </div>
     </section>
   );

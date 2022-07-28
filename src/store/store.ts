@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import type { WebStorage } from 'redux-persist';
 import { persistReducer } from 'redux-persist';
 import Stepper from '../slices/stepperSlice';
+import Auth from '../slices/authSlice';
 
 interface PersitConfig {
   key: string;
@@ -16,9 +17,8 @@ export const persistConfig: PersitConfig = {
 };
 
 const rootReducer = combineReducers({
-
   stepper: Stepper.reducer,
-
+  user: Auth.reducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

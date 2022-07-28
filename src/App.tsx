@@ -18,12 +18,11 @@ import Plan from './components/pages/Plan';
 import Finish from './components/pages/Finish';
 import Stepper from './components/widget/Stepper';
 import Header from './components/header';
+import { FormikValues, useFormik } from 'formik';
 
 const App: React.FC<{}> = () => {
   const navigate = useNavigate();
-
   const [search] = useSearchParams();
-
   const queryParams = search.get('step');
 
   const render = (query: string) => {

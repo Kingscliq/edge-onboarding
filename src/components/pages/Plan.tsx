@@ -11,6 +11,16 @@ const Plan: React.FC<{}> = () => {
 
   const { setStep } = useStepperActions();
   const [activeSelect, setActiveSelect] = useState<string>('self');
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleSubmit = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setStep({ step: 3, completed: true, active: false });
+      navigate('/?step=4');
+    }, 5000);
+  };
 
   return (
     <section className="w-full mx-auto mt-32 text-secondary">
@@ -37,8 +47,8 @@ const Plan: React.FC<{}> = () => {
             onClick={() => setActiveSelect('self')}
           />
         </div>
-        {/* size={32} color={`${active ? '#664DE5 ' : '919AAD'}` */}
-        <div className="mb-4">
+
+        <div className="mb-6">
           <SelectPlan
             icon={
               <RiTeamFill
@@ -56,10 +66,8 @@ const Plan: React.FC<{}> = () => {
         <Button
           className="bg-primary text-light text-sm"
           label="Create Workspace"
-          onClick={() => {
-            setStep({ step: 3, completed: true, active: false });
-            navigate('/?step=4');
-          }}
+          onClick={handleSubmit}
+          loading={loading}
         />
       </div>
     </section>
