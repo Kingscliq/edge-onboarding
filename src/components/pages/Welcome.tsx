@@ -5,6 +5,7 @@ import { useStepperActions } from '../../hooks/useStepper';
 import Button from '../elements/Button';
 import TextField from '../elements/TextField';
 import * as yup from 'yup';
+import { useAuthActions } from '../../hooks/useAuthActions';
 interface FormValues extends FormikValues {
   fullName: string;
   displayName: string;
@@ -24,6 +25,9 @@ const Welcome: React.FC<{}> = () => {
   const navigate = useNavigate();
   const { setStep } = useStepperActions();
   const [loading, setLoading] = useState<boolean>(false);
+
+  const { setUser } = useAuthActions();
+  // Initialize Formik
   const { errors, values, touched, handleChange, handleSubmit, handleBlur } =
     useFormik<FormValues>({
       initialValues,
@@ -31,6 +35,7 @@ const Welcome: React.FC<{}> = () => {
       onSubmit: async values => {
         console.log(values);
         setLoading(true);
+        setUser(values);
         setTimeout(() => {
           setLoading(false);
           setStep({ step: 1, completed: true, active: true });

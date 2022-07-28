@@ -6,15 +6,18 @@ import SelectPlan from '../elements/Plan';
 import TextField from '../elements/TextField';
 import { RiTeamFill } from 'react-icons/ri';
 import { FaUser, FaUserAlt } from 'react-icons/fa';
+import { useAuthActions } from '../../hooks/useAuthActions';
 const Plan: React.FC<{}> = () => {
   const navigate = useNavigate();
 
   const { setStep } = useStepperActions();
   const [activeSelect, setActiveSelect] = useState<string>('self');
   const [loading, setLoading] = useState<boolean>(false);
-
+  const { setUser } = useAuthActions();
+  // handle Submission
   const handleSubmit = () => {
     setLoading(true);
+    setUser({ planType: activeSelect });
     setTimeout(() => {
       setLoading(false);
       setStep({ step: 3, completed: true, active: false });

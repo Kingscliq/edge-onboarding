@@ -1,8 +1,12 @@
 import React from 'react';
 import { success } from '../../assets/icons';
+import { useAuth } from '../../hooks/useAuthActions';
 import Button from '../elements/Button';
 
 const Finish: React.FC<{}> = () => {
+  const { user } = useAuth();
+
+  console.log(user);
   return (
     <section className="mt-16 text-secondary">
       <div className="flex items-center justify-center mb-4">
@@ -10,7 +14,7 @@ const Finish: React.FC<{}> = () => {
       </div>
       <div className="mb-4">
         <h3 className="text-2xl font-medium text-center">
-          Congratulations, Eren!
+          Congratulations, {user.displayName}!
         </h3>
       </div>
       <div className="mb-6">

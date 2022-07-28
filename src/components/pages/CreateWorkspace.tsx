@@ -5,6 +5,7 @@ import { useStepperActions } from '../../hooks/useStepper';
 import Button from '../elements/Button';
 import TextField from '../elements/TextField';
 import * as yup from 'yup';
+import { useAuthActions } from '../../hooks/useAuthActions';
 
 // Create Workspace
 interface FormValues extends FormikValues {
@@ -24,11 +25,12 @@ const validationSchema = yup.object({
   workSpaceUrl: yup.string().required('WorkSpace URL is required'),
 });
 
-// Create Workspace
+// Create Workspace Component Init
 const CreateWorkspace: React.FC<{}> = () => {
   const navigate = useNavigate();
   const { setStep } = useStepperActions();
   const [loading, setLoading] = useState<boolean>(false);
+  const { setUser } = useAuthActions();
 
   // Initalize Formik
   const { errors, values, touched, handleChange, handleSubmit, handleBlur } =
@@ -37,6 +39,7 @@ const CreateWorkspace: React.FC<{}> = () => {
       validationSchema: validationSchema,
       onSubmit: async values => {
         setLoading(true);
+        setUser(values);
         setTimeout(() => {
           setLoading(false);
           setStep({ step: 2, completed: true, active: false });
