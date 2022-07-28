@@ -1,11 +1,14 @@
 import React from 'react';
+import { FaArrowCircleLeft } from 'react-icons/fa';
+import { RiRefreshFill } from 'react-icons/ri';
+import { useNavigate } from 'react-router-dom';
 import { success } from '../../assets/icons';
 import { useAuth } from '../../hooks/useAuthActions';
 import Button from '../elements/Button';
 
 const Finish: React.FC<{}> = () => {
   const { user } = useAuth();
-
+  const navigate = useNavigate();
   return (
     <section className="mt-16 text-secondary">
       <div className="flex items-center justify-center mb-4">
@@ -23,6 +26,21 @@ const Finish: React.FC<{}> = () => {
       </div>
       <div>
         <Button className="bg-primary text-light text-sm" label="Launch Eden" />
+      </div>
+      <div className="mt-16 w-full flex items-center justify-center">
+        <button
+          className="text-tertiary text-center flex items-center text-xs"
+          onClick={() => {
+            localStorage.clear();
+            navigate('/?step=1');
+            location.reload();
+          }}
+        >
+          <div>
+            <FaArrowCircleLeft />
+          </div>
+          <div className="ml-2">Refresh</div>
+        </button>
       </div>
     </section>
   );

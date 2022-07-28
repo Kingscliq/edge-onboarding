@@ -53,6 +53,7 @@ const Plan: React.FC<{}> = () => {
 
         <div className="mb-6">
           <SelectPlan
+            title="My team"
             icon={
               <RiTeamFill
                 size={32}

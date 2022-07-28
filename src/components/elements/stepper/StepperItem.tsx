@@ -18,7 +18,7 @@ const StepperItem: React.FC<StepperItemProps> = ({
   return (
     <section className="flex items-center">
       <div
-        className={`sm:h-[50px] sm:w-[50px] w-[30px] h-[30px] rounded-full border-tertiary border flex items-center justify-center ${
+        className={`sm:h-[40px] sm:w-[40px] w-[30px] h-[30px] rounded-full border-tertiary border flex items-center justify-center ${
           (active || completed) && 'bg-primary text-white border-primary'
         }`}
       >
