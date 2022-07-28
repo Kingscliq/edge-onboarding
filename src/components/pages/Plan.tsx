@@ -37,7 +37,7 @@ const Plan: React.FC<{}> = () => {
           We'll streamline your setup experience accordingly
         </p>
       </div>
-      <section className="grid grid-cols-2 gap-7 mt-6">
+      <section className="grid sm:grid-cols-2 grid-cols-1 sm:gap-7 gap-0  mt-6">
         <div className="mb-4">
           <SelectPlan
             icon={

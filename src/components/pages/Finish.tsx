@@ -6,7 +6,6 @@ import Button from '../elements/Button';
 const Finish: React.FC<{}> = () => {
   const { user } = useAuth();
 
-  console.log(user);
   return (
     <section className="mt-16 text-secondary">
       <div className="flex items-center justify-center mb-4">

@@ -1,6 +1,6 @@
 // hello
-import React, { ComponentProps, JSXElementConstructor } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useStepper } from '../../hooks/useStepper';
 import StepperItem from '../elements/stepper/StepperItem';
 
