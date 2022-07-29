@@ -26,7 +26,7 @@ const Plan: React.FC<{}> = () => {
   };
 
   return (
-    <section className="w-full mx-auto mt-32 text-secondary">
+    <section className="w-full mx-auto mt-16 text-secondary">
       <div className="mb-4">
         <h3 className="text-2xl font-medium text-center">
           How do you plan to use Eden?
